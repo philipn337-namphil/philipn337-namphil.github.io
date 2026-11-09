@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>남필량 | Portfolio</title>
+<meta name="description" content="경희대학교 소프트웨어융합대학 남필량의 포트폴리오. AI·클라우드·백엔드 프로젝트와 활동.">
+<meta property="og:title" content="남필량 | Portfolio">
+<meta property="og:description" content="문제를 정의하고, 서비스를 끝까지 만들어 실제로 운영하는 개발자를 목표로 합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg-soft: #f4f6fa; --card: #ffffff; --ink: #161a21; --sub: #5a6270;
+    --line: #e2e6ee; --accent: #1f5fbf; --accent-soft: #e8f0fc; --gold-bg: #fff3d6; --gold-ink: #8a5a00;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1218; --bg-soft: #161b23; --card: #161b23; --ink: #e8ebf0; --sub: #9aa3b2;
+      --line: #273040; --accent: #6ea3ff; --accent-soft: #1b2a44; --gold-bg: #3a2e12; --gold-ink: #ffd27a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1218; --bg-soft: #161b23; --card: #161b23; --ink: #e8ebf0; --sub: #9aa3b2;
+    --line: #273040; --accent: #6ea3ff; --accent-soft: #1b2a44; --gold-bg: #3a2e12; --gold-ink: #ffd27a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Noto Sans KR", "Malgun Gothic", sans-serif; line-height: 1.65; font-size: 16px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 12px; }
+  nav .brand { font-weight: 800; color: var(--ink); }
+  nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; font-size: 14px; overflow-x: auto; }
+  nav ul a { color: var(--sub); white-space: nowrap; }
+  #theme { background: none; border: 1px solid var(--line); color: var(--sub); border-radius: 8px; padding: 4px 9px; cursor: pointer; font-size: 14px; }
+
+  header.hero { padding: 72px 0 48px; }
+  .hero .kicker { color: var(--accent); font-weight: 700; font-size: 14px; letter-spacing: .5px; }
+  .hero h1 { font-size: clamp(34px, 6vw, 52px); margin: 6px 0 10px; line-height: 1.15; letter-spacing: -1px; }
+  .hero .school { color: var(--sub); margin: 0 0 18px; }
+  .hero .statement { font-size: clamp(18px, 2.6vw, 22px); font-weight: 500; max-width: 720px; margin: 0 0 20px; }
+  .interests { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .interests span { background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 4px 12px; font-size: 14px; font-weight: 500; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 10px; padding: 9px 16px; color: var(--ink); font-weight: 500; font-size: 15px; background: var(--card); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn:hover { text-decoration: none; filter: brightness(1.05); }
+
+  section { padding: 44px 0; border-top: 1px solid var(--line); }
+  section h2 { font-size: 24px; margin: 0 0 22px; letter-spacing: -.3px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } nav ul { gap: 12px; } header.hero { padding: 48px 0 32px; } }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+  .list { list-style: none; margin: 0; padding: 0; }
+  .list li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .list li:last-child { border-bottom: none; }
+  .list .what { font-weight: 500; }
+  .list .what small { display: block; color: var(--sub); font-weight: 400; font-size: 13.5px; }
+  .list .when { color: var(--sub); font-size: 14px; white-space: nowrap; }
+  .card h3.label { margin: 0 0 6px; font-size: 15px; color: var(--accent); }
+
+  .proj { display: flex; flex-direction: column; gap: 10px; }
+  .proj .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+  .proj h3 { margin: 0; font-size: 19px; line-height: 1.35; }
+  .proj h3 a { color: var(--ink); }
+  .proj .one { color: var(--sub); font-size: 14.5px; margin-top: 2px; }
+  .badge { font-size: 12.5px; font-weight: 700; border-radius: 6px; padding: 3px 8px; white-space: nowrap; background: var(--accent-soft); color: var(--accent); }
+  .badge.gold { background: var(--gold-bg); color: var(--gold-ink); }
+  .role { font-size: 14px; font-weight: 700; }
+  .role span { color: var(--sub); font-weight: 400; }
+  .proj ul { margin: 0; padding-left: 18px; font-size: 15px; }
+  .proj ul li { margin: 4px 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+  .tags span { font-size: 12.5px; border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; color: var(--sub); }
+  .more { font-size: 14px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 560px; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--bg-soft); font-size: 14px; color: var(--sub); }
+  tr:last-child td { border-bottom: none; }
+  td.r { white-space: nowrap; font-weight: 500; }
+
+  .stack { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stack span { border: 1px solid var(--line); background: var(--card); border-radius: 8px; padding: 5px 12px; font-size: 14.5px; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--sub); font-size: 14px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">남필량</a>
+    <ul>
+      <li><a href="#about">소개</a></li>
+      <li><a href="#projects">프로젝트</a></li>
+      <li><a href="#activities">활동</a></li>
+      <li><a href="#contact">연락</a></li>
+    </ul>
+    <button id="theme" type="button" aria-label="화면 테마 바꾸기">◐</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="kicker">PORTFOLIO</div>
+    <h1>남필량</h1>
+    <p class="school">경희대학교 소프트웨어융합대학 2학년</p>
+    <p class="statement">문제를 정의하는 데서 멈추지 않고, 서비스를 끝까지 만들어 <b>실제로 배포하고 운영하는 일</b>에 관심이 있습니다.</p>
+    <div class="interests">
+      <span>AI</span><span>Data</span><span>Computer Vision</span><span>Backend</span><span>Cloud Computing</span><span>Infrastructure</span><span>Product Management</span>
+    </div>
+    <div class="links">
+      <a class="btn primary" href="https://github.com/philipn337-namphil" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="mailto:philipn337@gmail.com">philipn337@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2>한눈에 보기</h2>
+    <div class="grid">
+      <div class="card">
+        <h3 class="label">수상 · 수료</h3>
+        <ul class="list">
+          <li><div class="what">제1회 KHUDA 정기학술제 우수상<small>CCTV 기반 쓰레기 무단 투기 탐지</small></div><div class="when">2026.07</div></li>
+          <li><div class="what">2026 세모톤 AI/SW 융합해커톤 장려상<small>온동네 AI</small></div><div class="when">2026.04</div></li>
+          <li><div class="what">LG Aimers 9기 수료<small>LG AI연구원 AI 인재 육성 프로그램</small></div><div class="when">2026.07 – 09</div></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="label">자격</h3>
+        <ul class="list">
+          <li><div class="what">SQLD<small>제58회 SQL 개발자 · 한국데이터산업진흥원</small></div><div class="when">2025.09</div></li>
+          <li><div class="what">ADsP<small>제43회 데이터분석 준전문가 · 한국데이터산업진흥원</small></div><div class="when">2024.11</div></li>
+          <li><div class="what">정보처리기능사<small>한국산업인력공단</small></div><div class="when">2019.04</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>대표 프로젝트</h2>
+    <div class="grid">
+
+      <article class="card proj">
+        <div class="top">
+          <div><h3><a href="https://github.com/philipn337-namphil/kkagung" target="_blank" rel="noopener">까궁 (kkagung)</a></h3><div class="one">운세 기반 익명 매칭 서비스</div></div>
+          <span class="badge">Cloud · Backend</span>
+        </div>
+        <div class="role">팀장 · NAVER Cloud 인프라 · 발표 <span>| 4인 팀 · 2026.10</span></div>
+        <ul>
+          <li>오늘의 운세·궁합 점수가 그날의 추천을 정하는 서비스. 오전 8시에 트래픽이 몰리는 구조를 전제로 설계</li>
+          <li>NAVER Cloud에 실배포: VPC 서브넷 분리, Load Balancer, <b>Auto Scaling(1~4대)</b>, Cloud DB for MySQL, Object Storage</li>
+          <li><b>부하 테스트로 자동 증설을 검증</b>하고 영상·콘솔 캡처로 기록</li>
+          <li>팀원 PR 리뷰·통합과 백엔드·프론트 마무리 주도 (전체 커밋 193개 중 137개)</li>
+        </ul>
+        <div class="tags"><span>NAVER Cloud</span><span>TypeScript</span><span>MySQL</span><span>Docker</span><span>GitHub Actions</span></div>
+      </article>
+
+      <article class="card proj">
+        <div class="top">
+          <div><h3><a href="https://github.com/philipn337-namphil/KHUDA_CV" target="_blank" rel="noopener">CCTV 기반 쓰레기 무단 투기 탐지</a></h3><div class="one">비디오 행동 인식 파이프라인</div></div>
+          <span class="badge gold">🏆 학술제 우수상</span>
+        </div>
+        <div class="role">데이터 전처리 · 발표 <span>| KHUDA CV 1팀 · 2026.06 – 07</span></div>
+        <ul>
+          <li>무단 투기를 객체 탐지가 아닌 <b>비디오 행동 인식 문제</b>로 정의. VideoMAE로 의심 구간을 찾고 YOLOv8로 투기 순간을 표시</li>
+          <li>AI Hub CCTV 영상을 클립 약 11,800개로 가공하는 전처리 파이프라인 담당. 카메라 배경 shortcut bias를 찾아 보정</li>
+          <li><b>Accuracy 97.7% · F1 0.977 · AUROC 0.997</b></li>
+        </ul>
+        <div class="tags"><span>Python</span><span>PyTorch</span><span>VideoMAE</span><span>YOLOv8</span></div>
+      </article>
+
+      <article class="card proj">
+        <div class="top">
+          <div><h3><a href="https://github.com/On-Dongnae/On-Dongnae_AI" target="_blank" rel="noopener">온동네 AI</a></h3><div class="one">동네 환경 미션 플랫폼의 AI 서버</div></div>
+          <span class="badge gold">🏆 세모톤 장려상</span>
+        </div>
+        <div class="role">AI 서버 <span>| 세모톤 1팀 · 2026.03 – 04</span></div>
+        <ul>
+          <li>미션 인증 사진을 <b>CLIP + YOLOv8 + 품질 점수 → Logistic Regression</b>으로 최종 판정</li>
+          <li>날씨와 계절에 맞춘 히든 미션을 매일 자정에 자동 발행</li>
+          <li>백엔드를 주기적으로 확인하는 워커 구조로 설계, S3 이미지 판정, Docker로 EC2 배포</li>
+        </ul>
+        <div class="tags"><span>Python</span><span>FastAPI</span><span>PyTorch</span><span>scikit-learn</span><span>AWS</span><span>Docker</span></div>
+      </article>
+
+      <article class="card proj">
+        <div class="top">
+          <div><h3><a href="https://github.com/philipn337-namphil/DORMFIX" target="_blank" rel="noopener">DORMFIX</a></h3><div class="one">기숙사 시설 보수 관리 백엔드</div></div>
+          <span class="badge">Backend</span>
+        </div>
+        <div class="role">개인 프로젝트 <span>| 설계·구현 전체 · 진행 중</span></div>
+        <ul>
+          <li>접수 → 배정 → 방문 → 수리 → 확인 흐름을 하나의 추적 가능한 서비스로 구현</li>
+          <li>구현 전에 <b>설계 결정 기록(ADR) 22개</b>로 API·권한·상태 규칙을 먼저 고정</li>
+          <li>역할별 조회 권한, 상태 전이, 동시 수정 충돌 처리, 통합 테스트, Docker 기반 CI</li>
+        </ul>
+        <div class="tags"><span>Java</span><span>Spring Boot</span><span>Docker</span><span>GitHub Actions</span></div>
+      </article>
+
+      <article class="card proj">
+        <div class="top">
+          <div><h3><a href="https://github.com/philipn337-namphil/aritistic_software_device" target="_blank" rel="noopener">예소 루틴 디바이스</a></h3><div class="one">발달장애 아동용 루틴 보조 기기</div></div>
+          <span class="badge">Embedded</span>
+        </div>
+        <div class="role">디바이스 전담 <span>| 앱·서버·디바이스 팀 · 2026.09 – 10</span></div>
+        <ul>
+          <li>특수학급에 다니는 경증 발달장애 아동용 키링형 기기와 선생님·보호사용 앱</li>
+          <li>ESP32-S3 펌웨어(C++), 배선·납땜, 서버 루틴 동기화 담당</li>
+          <li>발표 직전 보드가 손상되자 같은 펌웨어를 브라우저에서 돌리는 가상 디바이스를 이틀 만에 만들어 시연</li>
+        </ul>
+        <div class="more"><a href="https://philipn337-namphil.github.io/aritistic_software_device/3d.html" target="_blank" rel="noopener">웹 가상 디바이스 →</a><a href="https://github.com/Sang-min-le-e/2026-khu-Artistic-Software-TOMO" target="_blank" rel="noopener">팀 통합 레포 →</a></div>
+        <div class="tags"><span>C++</span><span>ESP32-S3</span></div>
+      </article>
+
+      <article class="card proj">
+        <div class="top">
+          <div><h3><a href="https://github.com/philipn337-namphil/KHUBA_OB_Project" target="_blank" rel="noopener">충북 지역소멸 대응 AI 시뮬레이터</a></h3><div class="one">정책 효과 예측 웹앱</div></div>
+          <span class="badge">AI · PM</span>
+        </div>
+        <div class="role">PM · 앱 개발 <span>| KHUDA · 2026.08</span></div>
+        <ul>
+          <li>충북 읍·면·동 146곳의 다음 해 순이동률을 XGBoost로 예측</li>
+          <li>SHAP으로 예측 근거를 설명하고, 정책 변수를 바꿔 보는 What-if 시뮬레이션 제공</li>
+          <li>화면의 모든 수치를 실제 모델 계산값으로만 구성</li>
+        </ul>
+        <div class="tags"><span>Python</span><span>Streamlit</span><span>XGBoost</span><span>SHAP</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <h2>그 밖의 프로젝트</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>프로젝트</th><th>역할</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://github.com/philipn337-namphil/LG_Aimers" target="_blank" rel="noopener">LG Aimers Phase 2</a></td><td class="r">개인 작업 전체</td><td>Trackman 투구 데이터 예측 모델. CatBoost + 확률 보정, 데이터 누수 점검과 검증 실험</td></tr>
+          <tr><td><a href="https://github.com/philipn337-namphil/cost_compass_maker_movement" target="_blank" rel="noopener">Cost Compass</a></td><td class="r">개인 과제</td><td>학생용 AWS 인프라 설계안 비용 비교 도구. RDS 확장 지원 요금(월 $175) 발견</td></tr>
+          <tr><td><a href="https://github.com/philipn337-namphil/opensource_HW2" target="_blank" rel="noopener">문서 요약 &amp; 키워드 추출기</a></td><td class="r">개인 과제</td><td>txt·pdf 문서 요약 풀스택 웹앱. Docker Compose, GitHub Actions CI/CD</td></tr>
+          <tr><td><a href="https://github.com/philipn337-namphil/CV_project_harness_practice" target="_blank" rel="noopener">CV 하네스 스터디</a></td><td class="r">1인 스터디</td><td>무단 투기 탐지 프로젝트를 소재로 AI 에이전트 개발 하네스 연습</td></tr>
+          <tr><td><a href="https://github.com/philipn337-namphil/micro_service_programming_lab" target="_blank" rel="noopener">Microservice Labs</a></td><td class="r">수업 실습</td><td>Docker · Docker Compose · Volume · Jenkins</td></tr>
+          <tr><td><a href="https://github.com/philipn337-namphil/toy_project_comeback_predictor" target="_blank" rel="noopener">컴백 예측 토이 프로젝트</a></td><td class="r">팀원</td><td>Spotify 차트·오디오 특성 데이터를 활용한 ML 토이 프로젝트</td></tr>
+          <tr><td><a href="https://github.com/philipn337-namphil/khuda_9_ml_roomescape" target="_blank" rel="noopener">KHUDA 9기 ML 스터디</a></td><td class="r">학회 스터디</td><td>머신러닝 주차별 학습 기록</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="activities">
+  <div class="wrap">
+    <h2>활동</h2>
+    <div class="grid">
+      <div class="card">
+        <h3 class="label">교내 · 대외 활동</h3>
+        <ul class="list">
+          <li><div class="what">제7대 소프트웨어융합대학 학생회 운영팀장</div></li>
+          <li><div class="what">KHUDA 10기 기획부장<small>경희대학교 데이터분석·AI 동아리 · AI 모델 학습 대회 기획 (9기 CV 팀 활동)</small></div></li>
+          <li><div class="what">경희대학교 ACC 멤버</div></li>
+          <li><div class="what">LG Aimers 9기<small>Phase 2 프로젝트 수행</small></div><div class="when">2026.07 – 09</div></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="label">스터디</h3>
+        <ul class="list">
+          <li><div class="what">KHUDA Java 스터디</div><div class="when">2026 1학기</div></li>
+          <li><div class="what">시스템 디자인 스터디<small>대규모 시스템 설계</small></div><div class="when">2026 2학기</div></li>
+          <li><div class="what">AWS SAA-C03 · NAVER Cloud NCA<small>자격 준비</small></div><div class="when">진행 중</div></li>
+        </ul>
+      </div>
+    </div>
+    <h3 class="label" style="margin:26px 0 12px">Tech Stack</h3>
+    <div class="stack">
+      <span>Python</span><span>Java</span><span>C++</span><span>SQL</span><span>Spring Boot</span><span>FastAPI</span><span>MySQL</span><span>PyTorch</span><span>YOLOv8</span><span>scikit-learn</span><span>Pandas</span><span>CatBoost</span><span>Streamlit</span><span>NAVER Cloud</span><span>AWS</span><span>Docker</span><span>GitHub Actions</span><span>ESP32-S3</span><span>Git</span>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>남필량 · <a href="mailto:philipn337@gmail.com">philipn337@gmail.com</a> · <a href="https://github.com/philipn337-namphil" target="_blank" rel="noopener">github.com/philipn337-namphil</a></div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('theme');
+    try { var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+    btn.addEventListener('click', function () {
+      var cur = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      var next = cur === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>
